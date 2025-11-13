@@ -25,11 +25,13 @@ function ArticleList() {
   const [filteredResult, setFilterSearch] = useState<Article[]>([]);
 
   useEffect(() => {
-      fetch('http://localhost:3001/articles')
-        .then((response) => response.json())
-        .then((data) => {setArticles(data);
-          console.log(data)});
-    }, []);
+    fetch("http://localhost:3001/articles")
+      .then((response) => response.json())
+      .then((data) => {
+        setArticles(data);
+        console.log(data);
+      });
+  }, []);
 
   useEffect(() => {
     setFilterSearch(filterSearch(articles, query));
@@ -40,14 +42,16 @@ function ArticleList() {
   };
 
   return (
-    <div>
-      <input
-        className="bg-white border rounded-2xl p-3 max-w-60"
-        type="text"
-        placeholder="Search.."
-        value={query}
-        onChange={handleSearchChange}
-      />
+    <div className="container mx-auto p-4">
+      <div className="flex justify-center mb-6">
+        <input
+          className="bg-white border rounded-2xl p-3 w-full max-w-xs shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+          type="text"
+          placeholder="Search.."
+          value={query}
+          onChange={handleSearchChange}
+        />
+      </div>
       <section className="flex flex-wrap justify-center gap-7">
         {filteredResult.map((article) => (
           <ArticleThumbnail

@@ -11,16 +11,16 @@ function ArticleThumbnail(props: Article) {
   return (
     <figure className="w-60 p-3 rounded-xl overflow-hidden shadow-sm transition hover:-translate-y-1 hover:shadow-md bg-white">
       <img
-        className="w-full h-40 object-cover"
+        className="w-full h-40 object-cover rounded-bl-3xl rounded-tr-3xl"
         src={props.image}
         alt={props.title}
       />
       <figcaption className="pt-2 space-y-1">
-        <p className="text-xs text-gray-400">#{props.id}</p>
+        <p className="text-m text-black-100">#{props.id}</p>
         <h2 className="font-semibold">{props.title}</h2>
         <p className="text-sm text-gray-700">{props.content}</p>
-        <button className="p-3" onClick={handleClick}>
-          <Heart color={isLiked ? "red" : "grey"} /> {/*if is liked true - set red, else set grey*/}
+        <button aria-label="Like" className="p-3" onClick={handleClick}>
+          <Heart color={isLiked ? "red" : "grey"} size={24} /> {/*if is liked true - set red, else set grey*/}
         </button>
       </figcaption>
     </figure>

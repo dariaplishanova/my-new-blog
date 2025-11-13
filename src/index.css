@@ -1,9 +1,12 @@
+* {
+  font-family: 'Cabinet Grotesk', sans-serif;
+}
 body {
   background-color: #ffffff;
   background-image: radial-gradient(
     circle,
-    rgba(0, 0, 0, 0.08) 1.25px,
-    rgba(0, 0, 0, 0) 1.25px
+    rgba(0, 0, 0, 0.08) 1px,
+    rgba(0, 0, 0, 0) 1px
   );
   background-size: 20px 20px; /* distance between dots */
   margin: 0 auto;
@@ -13,5 +16,6 @@ body {
 }
 
 figure {
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
