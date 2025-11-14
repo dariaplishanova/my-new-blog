@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import ArticleThumbnail from "./ArticleThumbnail";
+import Section from "./Section";
 
 export interface Article {
   id: number;
@@ -42,7 +43,7 @@ function ArticleList() {
   };
 
   return (
-    <div className="container mx-auto p-4">
+    <>
       <div className="flex justify-center mb-6">
         <input
           className="bg-white border rounded-2xl p-3 w-full max-w-xs shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400"
@@ -52,18 +53,22 @@ function ArticleList() {
           onChange={handleSearchChange}
         />
       </div>
-      <section className="flex flex-wrap justify-center gap-7">
-        {filteredResult.map((article) => (
-          <ArticleThumbnail
-            key={article.id}
-            id={article.id}
-            title={article.title}
-            content={article.content}
-            image={article.image}
-          />
-        ))}
-      </section>
-    </div>
+      <Section>
+        {filteredResult.length === 0 ? (
+          <p>No articles found.</p>
+        ) : (
+          filteredResult.map((article) => (
+            <ArticleThumbnail
+              key={article.id}
+              id={article.id}
+              title={article.title}
+              content={article.content}
+              image={article.image}
+            />
+          ))
+        )}
+      </Section>
+    </>
   );
 }
 
