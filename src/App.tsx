@@ -1,11 +1,9 @@
-
-import './App.css'
+import "./App.css"
 
 function App() {
-
   return (
-    <div>
-      <h1 className='text-red'>Daria Plishanova</h1>
+    <div className="flex min-h-svh flex-col items-center justify-center">
+      <div>App</div>
     </div>
   )
 }

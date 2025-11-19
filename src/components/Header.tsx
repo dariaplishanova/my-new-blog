@@ -1,18 +1,18 @@
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 import { Paperclip, Home, User } from "lucide-react";
 
 const Header = () => {
   return (
    <nav className="h-14 w-full bg-stone-800 rounded-3xl shadow-md flex justify-between items-center px-7 mb-10 mt-6 text-white">
 
-  <NavLink to="/" className="text-white font-extrabold text-2xl transition-all duration-300 hover:text-yellow-500 ">
+  <Link to="/home" className="text-white font-extrabold text-2xl transition-all duration-300 hover:text-yellow-500 ">
     Blog
-  </NavLink>
+  </Link>
 
   <ul className="flex gap-6 md:gap-10">
     <li>
       <NavLink
-        to="/"
+        to="/home"
         className="flex items-center gap-2 transition-all duration-300 hover:text-yellow-500 hover:scale-105"
       >
         <Home size={18} />

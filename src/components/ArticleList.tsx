@@ -1,18 +1,20 @@
 import { useEffect, useState } from "react";
 import ArticleThumbnail from "./ArticleThumbnail";
 import Section from "./Section";
+import ArticleModal from "./ArticleModal";
 
 export interface Article {
   id: number;
   title: string;
   content: string;
+  createdAt?: Date;
   image: string;
+  categoryName: string;
+  fullContent?: string;
 }
 
 const filterSearch = (articles: Article[], query: string) => {
-  if (!query) {
-    return articles;
-  }
+  if (!query) return articles;
   return articles.filter((article) =>
     article.title.toLowerCase().includes(query.toLowerCase())
   );
@@ -20,26 +22,34 @@ const filterSearch = (articles: Article[], query: string) => {
 
 function ArticleList() {
   const [query, setQuery] = useState("");
-
   const [articles, setArticles] = useState<Article[]>([]);
+  const [filteredResult, setFilteredResult] = useState<Article[]>([]);
+  const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
 
-  const [filteredResult, setFilterSearch] = useState<Article[]>([]);
 
-  useEffect(() => {
+ useEffect(() => {
     fetch("http://localhost:3001/articles")
       .then((response) => response.json())
       .then((data) => {
         setArticles(data);
-        console.log(data);
+        setFilteredResult(data);
       });
   }, []);
 
   useEffect(() => {
-    setFilterSearch(filterSearch(articles, query));
-  }, [, articles, query]);
+    setFilteredResult(filterSearch(articles, query));
+  }, [articles, query]);
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(event.target.value);
+  };
+
+  const handleOpenArticle = (article: Article) => {
+    setSelectedArticle(article);
+  };
+
+  const handleCloseArticle = () => {
+    setSelectedArticle(null);
   };
 
   return (
@@ -60,16 +70,19 @@ function ArticleList() {
           filteredResult.map((article) => (
             <ArticleThumbnail
               key={article.id}
-              id={article.id}
-              title={article.title}
-              content={article.content}
-              image={article.image}
+              {...article}
+              onOpen={() => handleOpenArticle(article)}
             />
           ))
         )}
       </Section>
+
+      {selectedArticle && (
+        <ArticleModal article={selectedArticle} onClose={handleCloseArticle} />
+      )}
     </>
   );
 }
+
 
 export default ArticleList;
