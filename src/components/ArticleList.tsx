@@ -62,12 +62,6 @@ function ArticleList() {
   return (
     <>
       <div className="flex justify-between mb-6">
-        <button
-          className="justify-between bg-yellow-500 border rounded-xl p-2 hover:bg-yellow-600 transition-colors cursor-pointer hover:scale-105"
-          onClick={goToCreatePage}
-        >
-          Create an article
-        </button>
         <input
           className="bg-white border rounded-2xl p-3 w-full max-w-xs shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400"
           type="text"
@@ -75,6 +69,12 @@ function ArticleList() {
           value={query}
           onChange={handleSearchChange}
         />
+        <button
+          className="justify-between bg-yellow-500 border rounded-xl p-2 hover:bg-yellow-600 transition-colors cursor-pointer hover:scale-105"
+          onClick={goToCreatePage}
+        >
+          Create an article
+        </button>
       </div>
       <Section>
         {filteredResult.length === 0 ? (
