@@ -1,11 +1,12 @@
-import { Link, NavLink } from "react-router";
-import { Paperclip, Home, User } from "lucide-react";
+import { Link, NavLink } from "react-router-dom";
+import { Paperclip, Home } from "lucide-react";
 
 const Header = () => {
   return (
-   <nav className="h-14 w-full bg-stone-800 rounded-3xl shadow-md flex justify-between items-center px-7 mb-10 mt-6 text-white">
+    <header className="w-full">
+   <nav className="h-14 w-full border-b border-slate-200 flex justify-between items-center px-7 mb-10 mt-6 text-white">
 
-  <Link to="/home" className="text-white font-extrabold text-2xl transition-all duration-300 hover:text-yellow-500 ">
+  <Link to="/home" className="text-slate-500 font-extrabold text-2xl transition-all duration-300 hover:text-yellow-500 ">
     Blog
   </Link>
 
@@ -13,7 +14,7 @@ const Header = () => {
     <li>
       <NavLink
         to="/home"
-        className="flex items-center gap-2 transition-all duration-300 hover:text-yellow-500 hover:scale-105"
+        className="flex items-center text-slate-500 gap-2 hover:text-yellow-500 hover:scale-105"
       >
         <Home size={18} />
         Home
@@ -22,23 +23,17 @@ const Header = () => {
     <li>
       <NavLink
         to="/articles"
-        className="flex items-center gap-2 transition-all duration-300 hover:text-yellow-500 hover:scale-105"
+        className="flex items-center text-slate-500 gap-2 hover:text-yellow-500 hover:scale-105"
       >
         <Paperclip size={18} />
         Articles
       </NavLink>
     </li>
     <li>
-      <NavLink
-        to="/"
-        className="flex items-center gap-2 transition-all duration-300 hover:text-yellow-500 hover:scale-105"
-      >
-        <User size={18} />
-        Connection
-      </NavLink>
     </li>
   </ul>
 </nav>
+    </header>
 
   );
 };

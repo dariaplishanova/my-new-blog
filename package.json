@@ -11,15 +11,20 @@
     "api": "json-server --watch db.json --port 3001"
   },
   "dependencies": {
+    "@floating-ui/dom": "^1.7.4",
     "@radix-ui/react-slot": "^1.2.4",
     "@tailwindcss/vite": "^4.1.16",
+    "@tiptap/extension-placeholder": "^3.11.0",
+    "@tiptap/pm": "^3.11.0",
+    "@tiptap/react": "^3.11.0",
+    "@tiptap/starter-kit": "^3.11.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "embla-carousel-react": "^8.6.0",
     "lucide-react": "^0.552.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "react-router": "^7.9.5",
+    "react-router-dom": "^7.9.6",
     "tailwind-merge": "^3.4.0",
     "tailwindcss": "^4.1.16"
   },
